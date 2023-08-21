@@ -26,7 +26,7 @@ const createContex = require('../../common/createContext')
  * }
  */
 const importDataModule = {};
-yapi.emitHook('import_data', importDataModule);
+
 
 class openController extends baseController {
   constructor(ctx) {
@@ -70,6 +70,7 @@ class openController extends baseController {
         }
       }
     };
+    yapi.emitHook('import_data', importDataModule);
   }
 
   async importData(ctx) {
