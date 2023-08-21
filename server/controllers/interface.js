@@ -330,7 +330,13 @@ class interfaceController extends baseController {
    * @returns {Object}
    */
   async save(ctx) {
+    console.log("save_ctx: "+JSON.stringify(ctx)+"\n")
     let params = ctx.params;
+    let tag = ctx.request.body.tags;
+    if(tag && Array.isArray(tag) && tag.length > 0) {
+      params.tag = tag;
+    }
+    console.log("save_params："+JSON.stringify(params) +"\n");
 
     if (!this.$tokenAuth) {
       let auth = await this.checkAuth(params.project_id, 'project', 'edit');
@@ -758,9 +764,16 @@ class interfaceController extends baseController {
       old: interfaceData.toObject()
     };
 
+    let diffView = showDiffMsg(jsondiffpatch, formattersHtml, logData);
+    // 如果接口被修改,且不是更改状态为完成,则更新状态为未完成
+    if (diffView.length > 0 && data.status !== 'done') {
+      let updateStatusData = {status:"undone"}
+      await this.Model.up(id, updateStatusData);
+    }
+
+
     this.catModel.get(interfaceData.catid).then(cate => {
-      let diffView2 = showDiffMsg(jsondiffpatch, formattersHtml, logData);
-      if (diffView2.length <= 0) {
+      if (diffView.length <= 0) {
           return; // 没有变化时，不写日志
       }
       yapi.commons.saveLog({
@@ -822,6 +835,7 @@ class interfaceController extends baseController {
     }
 
     yapi.emitHook('interface_update', id).then();
+    params.project_id = interfaceData.project_id;
     await this.autoAddTag(params);
 
     ctx.body = yapi.commons.resReturn(result);
