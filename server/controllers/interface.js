@@ -780,8 +780,8 @@ class interfaceController extends baseController {
     });
 
     this.projectModel.up(interfaceData.project_id, { up_time: new Date().getTime() }).then();
-    if (params.switch_notice === true) {
-      let diffView = showDiffMsg(jsondiffpatch, formattersHtml, logData);
+    // if (params.switch_notice === true) {
+    if (false) {
       let annotatedCss = fs.readFileSync(
         path.resolve(
           yapi.WEBROOT,
