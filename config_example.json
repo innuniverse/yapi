@@ -2,6 +2,7 @@
   "port": "3000",
   "adminAccount": "admin@admin.com",
   "adminPassword":"admin",
+  "timeout": 120000,
   "closeRegister":true,
   "versionNotify": false,
   "db": {
@@ -21,5 +22,28 @@
       "user": "***@163.com",
       "pass": "*****"
     }
-  }
+  },
+  "plugins": [
+    {
+      "name": "notifier",
+      "options": {
+        "host": "http://localhost:3000"
+      }
+    },
+    {
+      "name": "interface-oauth2-token"
+    },
+    {
+      "name": "add-user"
+    },
+    {
+      "name": "pl-auto-test",
+      "options": {
+        "host": "http://localhost:3000"
+      }
+    },
+    {
+      "name": "api-watch"
+    }
+  ]
 }
