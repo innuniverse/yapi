@@ -342,7 +342,8 @@ class InterfaceMenu extends Component {
           item.list = item.list.filter(inter => {
             if (
               inter.title.indexOf(that.state.filter) === -1 &&
-              inter.path.indexOf(that.state.filter) === -1
+              inter.path.indexOf(that.state.filter) === -1 &&
+              inter.tag.toString().indexOf(that.state.filter) === -1
             ) {
               return false;
             }
