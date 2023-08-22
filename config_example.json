@@ -1,16 +1,16 @@
 {
   "port": "3000",
-  "adminAccount": "admin@admin.com",
+  "adminAccount": "admin",
   "adminPassword":"admin",
   "timeout": 120000,
   "closeRegister":true,
   "versionNotify": false,
   "db": {
     "servername": "127.0.0.1",
-    "DATABASE": "yapi",
+    "DATABASE": "yapi-mongo",
     "port": 27017,
-    "user": "test1",
-    "pass": "test1",
+    "user": "",
+    "pass": "",
     "authSource": ""
   },
   "mail": {
