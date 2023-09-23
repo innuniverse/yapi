@@ -9,12 +9,12 @@
     "servername": "127.0.0.1",
     "DATABASE": "yapi-mongo",
     "port": 27017,
-    "user": "",
-    "pass": "",
+    "user": "mongo",
+    "pass": "mongo",
     "authSource": ""
   },
   "mail": {
-    "enable": true,
+    "enable": false,
     "host": "smtp.163.com",
     "port": 465,
     "from": "***@163.com",
