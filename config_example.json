@@ -1,7 +1,7 @@
 {
   "port": "3000",
-  "adminAccount": "admin",
-  "adminPassword":"admin",
+  "adminAccount": "admin@bizerone",
+  "adminPassword":"admin@bizerone#pwd",
   "timeout": 120000,
   "closeRegister":true,
   "versionNotify": false,
@@ -24,26 +24,6 @@
     }
   },
   "plugins": [
-    {
-      "name": "notifier",
-      "options": {
-        "host": "http://localhost:3000"
-      }
-    },
-    {
-      "name": "interface-oauth2-token"
-    },
-    {
-      "name": "add-user"
-    },
-    {
-      "name": "pl-auto-test",
-      "options": {
-        "host": "http://localhost:3000"
-      }
-    },
-    {
-      "name": "api-watch"
-    }
+
   ]
 }
