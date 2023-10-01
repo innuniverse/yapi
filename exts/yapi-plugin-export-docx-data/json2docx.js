@@ -12,7 +12,7 @@ const parser = require('./parser.js');
 
 function toDocx(data) {
   const content = fs
-    .readFileSync(path.resolve(yapi.WEBROOT_SERVER, '../', 'input.docx'), 'binary');
+    .readFileSync(path.resolve(yapi.WEBROOT_SERVER, './', 'input.docx'), 'binary');
 
   const zip = new JSZip(content);
 
