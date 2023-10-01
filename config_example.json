@@ -35,8 +35,6 @@
     "usernameKey": "name"
   },
   "plugins": [
-    {
-      "name": "yapi-plugin-export-docx-data"
-    }
+
   ]
 }
