@@ -3,7 +3,7 @@
   "adminAccount": "admin@bizerone",
   "adminPassword":"admin@bizerone#pwd",
   "timeout": 120000,
-  "closeRegister":true,
+  "closeRegister":false,
   "versionNotify": false,
   "db": {
     "servername": "127.0.0.1",
@@ -23,7 +23,20 @@
       "pass": "*****"
     }
   },
+  "ldapLogin": {
+    "enable": false,
+    "server": "ldap://l-ldapt1.com",
+    "baseDn": "CN=Admin,CN=Users,DC=test,DC=com",
+    "bindPassword": "password123",
+    "searchDn": "OU=UserContainer,DC=test,DC=com",
+    "searchStandard": "mail",
+    "emailPostfix": "@163.com",
+    "emailKey": "mail",
+    "usernameKey": "name"
+  },
   "plugins": [
-
+    {
+      "name": "yapi-plugin-export-docx-data"
+    }
   ]
 }
